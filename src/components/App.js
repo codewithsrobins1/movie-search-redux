@@ -1,18 +1,23 @@
 import React from 'react';
-
+import {Provider} from 'react-redux'
+import store from '../store.js'
 
 //Components
 import Header from './Header'
-// import Search from './Search'
+import Landing from './Landing.js';
 
 //Styles
 import '../styles/App.css';
 
+
 function App() {
   return (
     <div className="App">
-      <Header />
-      {/* <Search /> */}
+      <Provider store={store}>
+        <Header />
+        <Landing />
+      </Provider>
+
     </div>
   );
 }
