@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import MovieCard from './MovieCard'
 
 //Bootstrap
-import {Row, Container} from 'react-bootstrap'
+import {Row} from 'react-bootstrap'
 
 
 export class MovieList extends Component {
@@ -15,19 +15,18 @@ export class MovieList extends Component {
 
         //If there are movies in the array, display a movie card that takes movie and index and passes props key and movie
         content = movies.length > 0 
-        
         ? movies.map((movie, index) => <MovieCard key={index} movie={movie} />) 
         : null;
         
         return (
-            <div>
+            <Row>
                 {content}
-            </div>
+            </Row>      
         )
     }
 }
 
-
+//State is Passed as Props 
 const mapStateToProps = (state) => {
     return{
         movies: state.movies.movies

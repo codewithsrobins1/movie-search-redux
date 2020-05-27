@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 //Third Party
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +9,9 @@ const Header = () => {
   return (
     <div>
       <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">MovieSearcher</Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand href="#home">MovieSearcher</Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">

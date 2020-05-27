@@ -1,6 +1,8 @@
 import {
     SEARCH_MOVIE, 
-    FETCH_MOVIES
+    FETCH_MOVIES,
+    FETCH_MOVIE,
+    LOADING
 } from '../actions/types'
 
 const initialState = {
@@ -17,12 +19,24 @@ export default function(state = initialState, action){
             return {
                 ...state,               // <-- return the state
                 text: action.payload,   // <-- return the payload
-                loading: false          // Set the loading to false
+                loading: false          // return false loading
             }
         case FETCH_MOVIES:
             return {
                 ...state,
-                movies: action.payload,
+                movies: action.payload,     //return the movies array
+                loading: false              //set the loading to false (otherwise spinner will keep showing)
+            }  
+        case FETCH_MOVIE:
+            return {
+                ...state,
+                movie: action.payload,  //return individual movie
+                loading: false              //set the loading to false (otherwise spinner will keep showing)
+            }
+        case LOADING:
+            return {
+                ...state,
+                loading: true
             }         
         default:
             return state

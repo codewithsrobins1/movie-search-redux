@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {searchMovie, fetchMovies} from '../actions/searchAction.js'
-
+import {searchMovie, fetchMovies, setLoading} from '../actions/searchAction.js'
 
 //BootStrap 
 import {Jumbotron, InputGroup, FormControl, Button, Form} from 'react-bootstrap'
 
 export class SearchForm extends Component {
-
     //Change the State of the Text When input field is updated - Calling on the searchMovie action
     onChange = (e) => {
         this.props.searchMovie(e.target.value);
@@ -16,9 +14,9 @@ export class SearchForm extends Component {
     //Fetch the movie with the value from the text input field
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.fetchMovies(this.props.text)       //<-- Pass the state text to search
+        this.props.fetchMovies(this.props.text)       //<-- Pass the state's current text to search
+        this.props.setLoading();
     }
-
 
     render() {
         return (
@@ -56,13 +54,14 @@ export class SearchForm extends Component {
 //mapStateToProps to get component to access the state via props
 const mapStateToProps = (state) => {
     return {
-        text: state.movies.text     // <--state is the global state; movies is reducers which contains the searchReducers states; 
+        text: state.movies.text,     // <--state is the global state; movies comes from reducers which has the searchReducer which contains "text"
     }
 }
 
 //Connect With the Redux Store
 export default connect(mapStateToProps, {
     searchMovie,
-    fetchMovies
+    fetchMovies,
+    setLoading
 })(SearchForm)
 

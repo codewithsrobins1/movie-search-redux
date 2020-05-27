@@ -15,11 +15,11 @@ export class Landing extends Component {
 
         return (
             <div>
-                <Container>
+                <Container>                
                     <SearchForm />
+                    {/* If loading is true, show spinner, else show the movielist */}
                     {loading ? <Spinner /> : <MoviesList />} 
                 </Container>
-                
             </div>
         )
     }
