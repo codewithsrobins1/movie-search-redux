@@ -8,7 +8,7 @@ import {Navbar, Nav, Button} from 'react-bootstrap'
 const Header = () => {
   return (
     <div>
-      <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="md" bg="primary" variant="dark">
         <Link to="/">
           <Navbar.Brand href="#home">MovieSearcher</Navbar.Brand>
         </Link>
@@ -17,8 +17,8 @@ const Header = () => {
           <Nav className="mr-auto">
           </Nav>
       <Nav>
-        <Nav.Link href="#deets"><Button variant="success">IMDB</Button></Nav.Link>
-        <Nav.Link eventKey={2} href="#memes"><Button variant="info">GitHub</Button></Nav.Link>
+        <Nav.Link href="https://www.imdb.com/movies-in-theaters/" target="_blank"><Button variant="warning">New Releases</Button></Nav.Link>
+        <Nav.Link eventKey={2} href="https://github.com/codewithsrobins1/movie-search-redux" target="_blank"><Button variant="info">GitHub</Button></Nav.Link>
     </Nav>
       </Navbar.Collapse>
       </Navbar>

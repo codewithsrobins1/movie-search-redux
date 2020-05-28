@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {fetchMovie, setLoading} from '../actions/searchAction'
 
 //Components
-
+import Spinner from './Spinner'
 
 //Bootstrap
 import {Card, Row, ListGroup, Container, Col, Button} from 'react-bootstrap'
@@ -19,16 +19,14 @@ export class Movie extends Component {
     }
 
     render() {
-        const {movie} = this.props;
-        return (
-            <React.Fragment>
-                <Container className="mt-4" >
+        const {loading, movie} = this.props;
+
+        let movieData = (
+                <Container className="mt-5" >
                     <Row>
                         <Col lg={4}>
                             <Card>
-                                <Card.Body>
-                                    <img src={movie.Poster} alt="Movie Poster" />
-                                </Card.Body>
+                                <img src={movie.Poster} alt="Movie Poster" />
                             </Card>
                         </Col>
                         <Col lg={8}>
@@ -61,15 +59,25 @@ export class Movie extends Component {
                     <Row>
                         <Card className="bg-light my-5 text-dark">
                             <Col lg={12}>
-                                <h3>About</h3>
-                                {movie.Plot}
-                                <hr />
-                                <Link to="/"><Button variant="primary">Back to search</Button></Link>
+                                <Card.Body>
+                                    <Card.Title>About</Card.Title>
+                                    <Card.Text>
+                                        {movie.Plot}
+                                    </Card.Text>
+                                    <hr />
+                                    <Link to="/"><Button variant="primary">Back to search</Button></Link>
+                                </Card.Body>
                             </Col>
                         </Card>
                     </Row>
                 </Container>
-            </React.Fragment>
+        )
+
+        let content = loading ? <Spinner /> : movieData;
+        return (
+            <div>
+                {content}
+            </div>
         )
     }
 }

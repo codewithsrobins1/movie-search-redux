@@ -22,14 +22,14 @@ export class SearchForm extends Component {
         return (
             <div>
                 <Jumbotron className="align-self">
-                <h1>Movie Search Web App</h1>
+                <h1>Movie and TV Show Search Web App</h1>
                 <p>
-                    Search for your favorite movies, tv-shows, or actors and actresses using IMDB's database.
+                    Find information on your favorite movies and tv shows with a quick search.
                 </p>
                 <Form onSubmit={this.onSubmit}>
                     <InputGroup className="mb-3">
                         <FormControl
-                        placeholder="Find a movie, tv show, or actor"
+                        placeholder="Find a movie or tv show..."
                         aria-label="Recipient's username"
                         aria-describedby="basic-addon2"
                         onChange={this.onChange}
@@ -38,7 +38,7 @@ export class SearchForm extends Component {
                         <InputGroup.Append>
                         <Button 
                             type="submit"
-                            variant="secondary"
+                            variant="primary"
                         >
                             Search
                         </Button>
