@@ -12,7 +12,7 @@ export const searchMovie = (text) => dispatch => {
 //Fetch the movies that user requests
 export const fetchMovies = (text) => async dispatch => {
     try{
-        const urlBase = 'http://www.omdbapi.com/?s='
+        const urlBase = 'https://www.omdbapi.com/?s='
         const key = 'apikey=a3d723dc'
         const response = await axios.get(`${urlBase}${text}&${key}`);
     
@@ -30,7 +30,7 @@ export const fetchMovies = (text) => async dispatch => {
 //Fetch an Invidivual Movie
 export const fetchMovie = (id) => async dispatch => { 
     try{
-        const urlBase = 'http://www.omdbapi.com/?i='
+        const urlBase = 'https://www.omdbapi.com/?i='
         const key = 'apikey=a3d723dc'
         const response = await axios.get(`${urlBase}${id}&${key}`);
     
