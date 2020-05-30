@@ -1,6 +1,6 @@
 # MovieSearcher
 
-A movie search web application made using React and Redux. The application uses OMDb API's RESTful web service to obtain movie information.
+A movie search web application made using React and Redux. The application uses OMDb's API RESTful web service to obtain movie information.
 
 ## Demo
 
